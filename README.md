@@ -1,59 +1,112 @@
-# IaElevenlabsChat
+# Hablar con el Agente IA
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.5.
+SPA de Angular que integra el widget ElevenLabs Convai para conversaciones en tiempo real con un agente de IA.
 
-## Development server
+## 🎨 Características
 
-To start a local development server, run:
+- **Arquitectura**: Angular 19 standalone (sin SSR)
+- **Estilos**: Tailwind CSS con paleta corporativa navy + dorado
+- **Widget**: ElevenLabs Convai integrado como Web Component
+- **Tipografía**: Inter de Google Fonts
 
-```bash
-ng serve
-```
+## 🎨 Paleta de Colores
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Navy**: `#0A1833`
+- **Dorado**: `#D4AF37`
+- **Blanco**: `#FFFFFF`
 
-## Code scaffolding
+## 🚀 Instalación y Desarrollo
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Requisitos
 
-```bash
-ng generate component component-name
-```
+- Node.js >= 18
+- npm >= 9
+- Angular CLI (se instala globalmente)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### Instalación
 
 ```bash
-ng build
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
+npm start
+# o
+ng serve -o
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+La aplicación estará disponible en `http://localhost:4200`
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 📦 Build de Producción
 
 ```bash
-ng test
+# Compilar para producción
+ng build --configuration production
 ```
 
-## Running end-to-end tests
+Los archivos compilados se generan en: `dist/ia-elevenlabs-chat/browser/`
 
-For end-to-end (e2e) testing, run:
+## 🌐 Deploy en Netlify
 
-```bash
-ng e2e
+### Método Manual (Drag & Drop)
+
+1. Compila el proyecto:
+   ```bash
+   ng build --configuration production
+   ```
+
+2. Ve a [Netlify](https://app.netlify.com/)
+
+3. En tu sitio o uno nuevo:
+   - Click en **"Deploys"**
+   - Click en **"Deploy site"** (o "Drag and drop")
+   - Arrastra la carpeta: `dist/ia-elevenlabs-chat/browser`
+
+4. ¡Listo! Tu sitio estará en línea en segundos.
+
+### Notas sobre Deploy
+
+- **No se requiere** archivo `_redirects` ya que es una SPA sin routing
+- El widget de ElevenLabs se carga desde CDN (no requiere configuración adicional)
+- Asegúrate de subir la carpeta `browser`, no la carpeta padre
+
+## 🔧 Configuración del Widget
+
+El ID del agente de ElevenLabs se encuentra en:
+```typescript
+// src/app/app.ts
+widgetEl.setAttribute('agent-id', 'agent_01jzhbdxm1e1q9grq89nevb297');
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Para usar un agente diferente, reemplaza este ID con el tuyo.
 
-## Additional Resources
+## 📁 Estructura del Proyecto
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```
+ia-elevenlabs-chat/
+├── src/
+│   ├── app/
+│   │   ├── app.ts          # Componente principal
+│   │   ├── app.html        # Template
+│   │   └── app.css         # Estilos del componente
+│   ├── index.html          # HTML base con script del widget
+│   └── styles.css          # Estilos globales + Tailwind
+├── tailwind.config.js      # Configuración de Tailwind
+├── postcss.config.js       # Configuración de PostCSS
+└── angular.json            # Configuración de Angular
+```
+
+## 🎯 Características Implementadas
+
+- ✅ Angular standalone sin routing
+- ✅ Tailwind CSS v3 configurado
+- ✅ Paleta corporativa (navy + dorado)
+- ✅ Widget ElevenLabs Convai integrado
+- ✅ Diseño responsive
+- ✅ Tipografía Inter
+- ✅ Build de producción optimizado
+- ✅ Listo para deploy en Netlify
+
+## 📝 Licencia
+
+Este proyecto es parte de una implementación privada.

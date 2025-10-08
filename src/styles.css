@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fondo con gradiente sutil en navy */
+.brand-gradient {
+  background: radial-gradient(60% 60% at 50% 40%, #132347 0%, #0A1833 60%, #071225 100%);
+}
+/* Aro dorado sutil */
+.gold-ring { box-shadow: 0 0 0 2px #D4AF37 inset; }
