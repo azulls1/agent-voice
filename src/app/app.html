@@ -1,19 +1,377 @@
-<main class="min-h-screen flex items-center justify-center p-6">
-  <section class="w-full max-w-3xl bg-white/5 backdrop-blur-sm rounded-2xl p-8 ring-1 ring-white/10 gold-ring">
-    <header class="mb-6">
-      <h1 class="text-3xl md:text-4xl font-semibold text-white tracking-tight">
-        {{ title }}
-      </h1>
-      <p class="text-white/70 mt-2">
-        Interactúa por voz/texto con el agente de IA de ElevenLabs.
-      </p>
-    </header>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-inner max-w-6xl mx-auto" style="padding: 0 16px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <img src="assets/logos/logo-iagentek.webp" alt="IaGentek" style="width: 36px; height: 36px; object-fit: contain; filter: brightness(0);">
+      <div>
+        <h1 class="font-display font-bold text-forest" style="font-size: 14px; line-height: 1.2;">IaGentek</h1>
+        <p class="text-pine" style="font-size: 12px;">Agente IA Avanzado</p>
+      </div>
+    </div>
+    <span class="badge badge-active" style="font-size: 12px;">En línea</span>
+  </div>
+</nav>
 
-    <!-- Contenedor del Web Component -->
-    <div #widgetHost class="mt-4 w-full"></div>
-
-    <p class="text-xs text-white/60 mt-6">
-      Al usar el micrófono autorizas el acceso de la aplicación para fines de interacción con IA.
+<!-- Hero Section -->
+<section style="padding: 32px 16px;">
+  <div class="card-hero dark-surface animate-fadeInUp" style="max-width: 640px; margin: 0 auto; padding: 32px 20px; border-radius: 16px;">
+    <h2 class="font-display font-bold" style="font-size: clamp(20px, 4vw, 32px); color: white; margin-bottom: 8px;">
+      Hablar con el <span style="color: #9EADA3;">Agente IA</span>
+    </h2>
+    <p style="font-size: 14px; color: #C9D1C8; max-width: 420px; margin: 0 auto 24px; line-height: 1.5;">
+      Experimenta una conversación natural y fluida con nuestro agente de inteligencia artificial avanzado
     </p>
-  </section>
-</main>
+
+    <!-- Círculo central -->
+    <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+      <div style="position: relative;">
+        <div class="shadow-glow" style="width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(158,173,163,0.25), rgba(91,112,101,0.15));">
+          <svg style="width: 24px; height: 24px; color: #9EADA3; position: relative; z-index: 1;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+          </svg>
+        </div>
+        <div class="animate-bounce" style="position: absolute; top: -2px; right: -2px; width: 8px; height: 8px; border-radius: 50%; background: rgba(158,173,163,0.5);"></div>
+        <div class="animate-bounce" style="position: absolute; bottom: -2px; left: -2px; width: 6px; height: 6px; border-radius: 50%; background: rgba(91,112,101,0.3); animation-delay: 0.5s;"></div>
+      </div>
+    </div>
+
+    <p style="font-size: 12px; color: rgba(201,209,200,0.6); margin-bottom: 12px;">
+      Usa el widget en la esquina inferior derecha para comenzar
+    </p>
+    <div style="display: flex; justify-content: center;">
+      <button class="btn btn-primary--on-dark hover-lift" style="padding: 8px 16px; font-size: 13px;" (click)="iniciarConversacion()">
+        <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+        Iniciar conversación
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Cómo Funciona -->
+<section style="padding: 8px 16px 24px;">
+  <div style="max-width: 640px; margin: 0 auto;">
+    <div class="animate-fadeInUp" style="text-align: center; margin-bottom: 20px;">
+      <h2 class="font-display font-bold text-forest" style="font-size: clamp(18px, 3vw, 24px); margin-bottom: 4px;">¿Cómo funciona?</h2>
+      <p class="text-pine" style="font-size: 13px; max-width: 380px; margin: 0 auto;">
+        Toca cada paso para ver más detalles
+      </p>
+    </div>
+
+    <div class="stagger-children" style="display: flex; flex-direction: column; gap: 12px;">
+
+      <!-- Paso 1 -->
+      <div class="card hover-lift animate-fadeInUp" style="padding: 16px; cursor: pointer; transition: all 300ms ease;" (click)="toggleStep(1)">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="width: 36px; height: 36px; min-width: 36px; border-radius: 50%; background: #04202C; color: white; display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px;">
+            1
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <h3 class="font-display font-semibold text-forest" style="font-size: 14px; margin-bottom: 2px;">Abre el widget</h3>
+            <p class="text-pine" style="font-size: 13px; line-height: 1.4;">
+              Haz clic en el botón de chat en la esquina inferior derecha
+            </p>
+          </div>
+          <svg style="width: 18px; height: 18px; min-width: 18px; color: #9EADA3; transition: transform 300ms ease;" [style.transform]="expandedStep === 1 ? 'rotate(180deg)' : 'rotate(0)'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+        @if (expandedStep === 1) {
+          <div class="animate-fadeIn" style="margin-top: 12px; padding: 12px; background: rgba(4,32,44,0.03); border-radius: 8px;">
+            <div style="display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px;">
+              <svg style="width: 16px; height: 16px; min-width: 16px; color: #5B7065; margin-top: 1px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"></path>
+              </svg>
+              <p class="text-pine" style="font-size: 12px; line-height: 1.5;">
+                Busca el icono flotante <strong class="text-forest">azul</strong> con forma de teléfono. Está siempre visible en la parte inferior derecha de la pantalla.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: flex-start;">
+              <svg style="width: 16px; height: 16px; min-width: 16px; color: #5B7065; margin-top: 1px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <p class="text-pine" style="font-size: 12px; line-height: 1.5;">
+                Compatible con <strong class="text-forest">Chrome, Firefox, Safari y Edge</strong>. En móviles también funciona desde el navegador.
+              </p>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Conector -->
+      <div style="display: flex; justify-content: center;">
+        <div style="width: 2px; height: 12px; background: #DFE4E0; border-radius: 1px;"></div>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="card hover-lift animate-fadeInUp" style="padding: 16px; cursor: pointer; transition: all 300ms ease;" (click)="toggleStep(2)">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="width: 36px; height: 36px; min-width: 36px; border-radius: 50%; background: #04202C; color: white; display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px;">
+            2
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <h3 class="font-display font-semibold text-forest" style="font-size: 14px; margin-bottom: 2px;">Permite el micrófono</h3>
+            <p class="text-pine" style="font-size: 13px; line-height: 1.4;">
+              Autoriza el acceso al micrófono cuando el navegador lo solicite
+            </p>
+          </div>
+          <svg style="width: 18px; height: 18px; min-width: 18px; color: #9EADA3; transition: transform 300ms ease;" [style.transform]="expandedStep === 2 ? 'rotate(180deg)' : 'rotate(0)'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+        @if (expandedStep === 2) {
+          <div class="animate-fadeIn" style="margin-top: 12px; padding: 12px; background: rgba(4,32,44,0.03); border-radius: 8px;">
+            <div style="display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px;">
+              <svg style="width: 16px; height: 16px; min-width: 16px; color: #5B7065; margin-top: 1px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+              </svg>
+              <p class="text-pine" style="font-size: 12px; line-height: 1.5;">
+                Tu navegador mostrará un diálogo de permiso. Haz clic en <strong class="text-forest">"Permitir"</strong> para que el agente pueda escucharte.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px;">
+              <svg style="width: 16px; height: 16px; min-width: 16px; color: #5B7065; margin-top: 1px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+              <p class="text-pine" style="font-size: 12px; line-height: 1.5;">
+                <strong class="text-forest">Tu privacidad es importante.</strong> El audio solo se procesa durante la conversación activa y no se almacena.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: flex-start;">
+              <svg style="width: 16px; height: 16px; min-width: 16px; color: #5B7065; margin-top: 1px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <p class="text-pine" style="font-size: 12px; line-height: 1.5;">
+                Si bloqueaste el micrófono por accidente, ve a <strong class="text-forest">Configuración del sitio</strong> en tu navegador para habilitarlo.
+              </p>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Conector -->
+      <div style="display: flex; justify-content: center;">
+        <div style="width: 2px; height: 12px; background: #DFE4E0; border-radius: 1px;"></div>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="card hover-lift animate-fadeInUp" style="padding: 16px; cursor: pointer; transition: all 300ms ease;" (click)="toggleStep(3)">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="width: 36px; height: 36px; min-width: 36px; border-radius: 50%; background: #04202C; color: white; display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px;">
+            3
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <h3 class="font-display font-semibold text-forest" style="font-size: 14px; margin-bottom: 2px;">Habla con el agente</h3>
+            <p class="text-pine" style="font-size: 13px; line-height: 1.4;">
+              Haz tu pregunta en voz alta y recibe respuesta inmediata
+            </p>
+          </div>
+          <svg style="width: 18px; height: 18px; min-width: 18px; color: #9EADA3; transition: transform 300ms ease;" [style.transform]="expandedStep === 3 ? 'rotate(180deg)' : 'rotate(0)'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+        @if (expandedStep === 3) {
+          <div class="animate-fadeIn" style="margin-top: 12px; padding: 12px; background: rgba(4,32,44,0.03); border-radius: 8px;">
+            <div style="display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px;">
+              <svg style="width: 16px; height: 16px; min-width: 16px; color: #5B7065; margin-top: 1px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+              </svg>
+              <p class="text-pine" style="font-size: 12px; line-height: 1.5;">
+                Habla con naturalidad como si fuera una conversación real. El agente entiende <strong class="text-forest">español y otros idiomas</strong>.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px;">
+              <svg style="width: 16px; height: 16px; min-width: 16px; color: #5B7065; margin-top: 1px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              <p class="text-pine" style="font-size: 12px; line-height: 1.5;">
+                Las respuestas son en <strong class="text-forest">tiempo real</strong> con voz sintetizada de alta calidad gracias a la tecnología de ElevenLabs.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: flex-start;">
+              <svg style="width: 16px; height: 16px; min-width: 16px; color: #5B7065; margin-top: 1px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+              <p class="text-pine" style="font-size: 12px; line-height: 1.5;">
+                Puedes hacer <strong class="text-forest">preguntas de seguimiento</strong> y el agente mantiene el contexto de toda la conversación.
+              </p>
+            </div>
+          </div>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section style="padding: 16px;">
+  <div style="max-width: 720px; margin: 0 auto;">
+    <div class="animate-fadeInUp" style="text-align: center; margin-bottom: 20px;">
+      <h2 class="font-display font-bold text-forest" style="font-size: clamp(18px, 3vw, 24px); margin-bottom: 4px;">Características Principales</h2>
+      <p class="text-pine" style="font-size: 13px; max-width: 400px; margin: 0 auto;">
+        Toca cada tarjeta para descubrir más detalles
+      </p>
+    </div>
+
+    <div class="stagger-children" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+
+      <!-- Card 1: Conversación Natural -->
+      <div class="card-feature hover-lift animate-fadeInUp" style="padding: 16px; cursor: pointer; transition: all 300ms ease;" (click)="toggleFeature(1)">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+          <div style="width: 32px; height: 32px; border-radius: 6px; background: rgba(4,32,44,0.08); color: #04202C; display: flex; align-items: center; justify-content: center; transition: all 300ms ease;">
+            <svg style="width: 16px; height: 16px;" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <svg style="width: 14px; height: 14px; color: #9EADA3; transition: transform 300ms ease;" [style.transform]="expandedFeature === 1 ? 'rotate(180deg)' : 'rotate(0)'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-forest" style="font-size: 14px; margin-bottom: 4px;">Conversación Natural</h3>
+        <p class="text-pine" style="font-size: 13px; line-height: 1.5;">
+          Interactúa de forma natural con tecnología de voz avanzada
+        </p>
+        @if (expandedFeature === 1) {
+          <div class="animate-fadeIn" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #EFF2F0;">
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px;">
+              <li style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: #059669;"></span>
+                <span class="text-forest" style="font-size: 12px;">Reconocimiento de voz en tiempo real</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: #059669;"></span>
+                <span class="text-forest" style="font-size: 12px;">Síntesis de voz de alta fidelidad</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: #059669;"></span>
+                <span class="text-forest" style="font-size: 12px;">Latencia ultra baja en respuestas</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: #059669;"></span>
+                <span class="text-forest" style="font-size: 12px;">Soporte multilingüe nativo</span>
+              </li>
+            </ul>
+          </div>
+        }
+      </div>
+
+      <!-- Card 2: IA Avanzada -->
+      <div class="card-feature hover-lift animate-fadeInUp" style="padding: 16px; cursor: pointer; transition: all 300ms ease;" (click)="toggleFeature(2)">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+          <div style="width: 32px; height: 32px; border-radius: 6px; background: rgba(4,32,44,0.08); color: #04202C; display: flex; align-items: center; justify-content: center; transition: all 300ms ease;">
+            <svg style="width: 16px; height: 16px;" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          </div>
+          <svg style="width: 14px; height: 14px; color: #9EADA3; transition: transform 300ms ease;" [style.transform]="expandedFeature === 2 ? 'rotate(180deg)' : 'rotate(0)'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-forest" style="font-size: 14px; margin-bottom: 4px;">IA Avanzada</h3>
+        <p class="text-pine" style="font-size: 13px; line-height: 1.5;">
+          Respuestas inteligentes y contextualizadas en tiempo real
+        </p>
+        @if (expandedFeature === 2) {
+          <div class="animate-fadeIn" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #EFF2F0;">
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px;">
+              <li style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: #059669;"></span>
+                <span class="text-forest" style="font-size: 12px;">Memoria contextual de la conversación</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: #059669;"></span>
+                <span class="text-forest" style="font-size: 12px;">Comprensión de intenciones complejas</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: #059669;"></span>
+                <span class="text-forest" style="font-size: 12px;">Procesamiento de lenguaje natural avanzado</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: #059669;"></span>
+                <span class="text-forest" style="font-size: 12px;">Respuestas personalizadas y relevantes</span>
+              </li>
+            </ul>
+          </div>
+        }
+      </div>
+
+      <!-- Card 3: Disponible 24/7 -->
+      <div class="card-feature hover-lift animate-fadeInUp" style="padding: 16px; cursor: pointer; transition: all 300ms ease;" (click)="toggleFeature(3)">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+          <div style="width: 32px; height: 32px; border-radius: 6px; background: rgba(4,32,44,0.08); color: #04202C; display: flex; align-items: center; justify-content: center; transition: all 300ms ease;">
+            <svg style="width: 16px; height: 16px;" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <svg style="width: 14px; height: 14px; color: #9EADA3; transition: transform 300ms ease;" [style.transform]="expandedFeature === 3 ? 'rotate(180deg)' : 'rotate(0)'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-forest" style="font-size: 14px; margin-bottom: 4px;">Disponible 24/7</h3>
+        <p class="text-pine" style="font-size: 13px; line-height: 1.5;">
+          Asistencia inteligente en cualquier momento del día
+        </p>
+        @if (expandedFeature === 3) {
+          <div class="animate-fadeIn" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #EFF2F0;">
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px;">
+              <li style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: #059669;"></span>
+                <span class="text-forest" style="font-size: 12px;">Sin tiempos de espera ni colas</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: #059669;"></span>
+                <span class="text-forest" style="font-size: 12px;">Acceso desde cualquier dispositivo</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: #059669;"></span>
+                <span class="text-forest" style="font-size: 12px;">Rendimiento consistente a toda hora</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 6px;">
+                <span style="width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: #059669;"></span>
+                <span class="text-forest" style="font-size: 12px;">No requiere instalación ni registro</span>
+              </li>
+            </ul>
+          </div>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="app-footer" style="margin-top: 24px;">
+  <div style="max-width: 720px; margin: 0 auto; padding: 0 16px;">
+    <!-- Logo IaGentek -->
+    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;">
+      <img src="assets/logos/logo_ia_withe.webp" alt="IaGentek" style="height: 32px; object-fit: contain; filter: brightness(0);">
+      <div>
+        <p class="font-display font-semibold text-forest" style="font-size: 14px;">IaGentek</p>
+        <p class="text-pine" style="font-size: 11px; line-height: 1;">Creado por Samael Hernandez</p>
+      </div>
+    </div>
+
+    <!-- Tecnologías -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 12px;">
+      <span class="tag" style="font-size: 11px; padding: 2px 8px;">Angular 20</span>
+      <span class="tag" style="font-size: 11px; padding: 2px 8px;">TypeScript</span>
+      <span class="tag" style="font-size: 11px; padding: 2px 8px;">Tailwind v4</span>
+      <span class="tag" style="font-size: 11px; padding: 2px 8px;">ElevenLabs</span>
+      <span class="tag" style="font-size: 11px; padding: 2px 8px;">Forest DS</span>
+    </div>
+
+    <!-- Copyright -->
+    <div class="divider-subtle"></div>
+    <div style="text-align: center; padding: 12px 0 8px;">
+      <p class="text-pine" style="font-size: 12px;">
+        © 2026 Samael Hernandez · Powered by ElevenLabs Agents
+      </p>
+      <p class="text-moss" style="font-size: 11px; margin-top: 2px;">
+        Al usar el micrófono autorizas el acceso para fines de interacción con IA.
+      </p>
+    </div>
+  </div>
+</footer>

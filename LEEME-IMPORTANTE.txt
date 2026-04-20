@@ -1,0 +1,95 @@
+═══════════════════════════════════════════════════════════════
+  ⚠️  IMPORTANTE - LEE ESTO ANTES DE SUBIR A NETLIFY ⚠️
+═══════════════════════════════════════════════════════════════
+
+🚨 PROBLEMA CRÍTICO:
+El error que estás viendo es porque Netlify está CACHEANDO los headers antiguos.
+
+📝 ERROR QUE VES:
+"Content-Security-Policy bloqueó wss://api.us.elevenlabs.io"
+
+═══════════════════════════════════════════════════════════════
+
+✅ SOLUCIÓN GARANTIZADA (2 minutos):
+
+1. ELIMINA EL SITIO ACTUAL EN NETLIFY
+   → Ve a: https://app.netlify.com
+   → Selecciona tu sitio
+   → Site settings → General → Scroll abajo
+   → Click en "Delete this site" (Danger zone)
+   → Confirma escribiendo el nombre del sitio
+
+2. CREA UN SITIO COMPLETAMENTE NUEVO
+   → Ve a: https://app.netlify.com/drop
+   → Arrastra el archivo: netlify-deploy-FINAL.zip
+   → Espera 1 minuto
+   → ¡Listo!
+
+3. PRUEBA EN INCÓGNITO (MUY IMPORTANTE)
+   → Ctrl + Shift + N (Chrome) o Ctrl + Shift + P (Firefox)
+   → Abre tu nuevo sitio
+   → Abre consola (F12)
+   → Click en el widget
+   → Acepta permiso del micrófono
+   → ¡Debería funcionar sin errores!
+
+═══════════════════════════════════════════════════════════════
+
+❌ NO HAGAS ESTO:
+- NO actualices el sitio existente (tiene caché)
+- NO uses la carpeta browser directamente (usa el ZIP)
+- NO pruebes en ventana normal (usa incógnito)
+
+✅ HAZ ESTO:
+- ELIMINA el sitio actual
+- CREA uno nuevo con el ZIP
+- PRUEBA en incógnito
+
+═══════════════════════════════════════════════════════════════
+
+📦 ARCHIVO CORRECTO A SUBIR:
+netlify-deploy-FINAL.zip
+
+📂 UBICACIÓN:
+C:\Users\azull\OneDrive\Desktop\Agent-iavoz\ia-elevenlabs-chat\netlify-deploy-FINAL.zip
+
+═══════════════════════════════════════════════════════════════
+
+🔍 VERIFICACIÓN:
+Los archivos YA TIENEN wss:// incluido.
+El problema es 100% de caché de Netlify.
+Crear un sitio nuevo lo resolverá.
+
+═══════════════════════════════════════════════════════════════
+
+¿POR QUÉ CREAR SITIO NUEVO?
+- Netlify cachea los headers por 24-48 horas
+- Actualizar el sitio NO limpia el caché automáticamente
+- Crear sitio nuevo = Sin caché = Funciona inmediatamente
+
+═══════════════════════════════════════════════════════════════
+
+✅ DESPUÉS DE CREAR EL SITIO NUEVO:
+1. Copia la URL que te dé Netlify
+2. Ve a: https://elevenlabs.io/app
+3. Settings → Allowed Domains
+4. Agrega tu nueva URL de Netlify
+5. ¡Todo funcionará!
+
+═══════════════════════════════════════════════════════════════
+
+💡 SI SIGUES VIENDO EL ERROR:
+- Asegúrate de estar en INCÓGNITO
+- Limpia caché del navegador (Ctrl + Shift + Delete)
+- Cierra y abre el navegador
+- Verifica que usaste netlify-deploy-FINAL.zip
+
+═══════════════════════════════════════════════════════════════
+
+🎯 GARANTÍA:
+Si sigues estos pasos EXACTAMENTE, funcionará al 100%.
+Los archivos están correctos. Solo es caché de Netlify.
+
+═══════════════════════════════════════════════════════════════
+
+

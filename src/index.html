@@ -2,19 +2,23 @@
 <html lang="es-MX">
   <head>
     <meta charset="utf-8">
-    <title>Hablar con el Agente IA</title>
+    <title>IaGentek - Agente IA Avanzado</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0A1833" />
+    <meta name="theme-color" content="#04202C" />
     <meta name="description" content="Conversación en tiempo real con un agente de IA de ElevenLabs." />
-    <link rel="icon" href="favicon.ico" />
-    <!-- Tipografía -->
+    <link rel="icon" type="image/webp" href="assets/logos/logo-iagentek.webp" />
+    <!-- Tipografías Forest DS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   </head>
-  <body class="brand-gradient min-h-screen text-white antialiased" style="font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;">
+  <body>
     <app-root></app-root>
 
     <!-- Script del widget ElevenLabs Convai -->
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+    <!-- Widget directamente en el HTML -->
+    <elevenlabs-convai agent-id="agent_01jzhbdxm1e1q9grq89nevb297" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;"></elevenlabs-convai>
   </body>
 </html>

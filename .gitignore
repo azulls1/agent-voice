@@ -41,3 +41,36 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment variables (IMPORTANTE PARA SEGURIDAD)
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+
+# Archivos de configuración sensibles
+*.key
+*.pem
+*.p12
+*.pfx
+*.cer
+*.crt
+secrets.json
+credentials.json
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Archivos temporales
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Build local (no subir a Git, solo a Netlify)
+# /dist (comentado porque necesitas el build para Netlify)

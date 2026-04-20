@@ -1,10 +1,27 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "./css/forest.css";
+@import "./css/forest-dark-surface.css";
 
-/* Fondo con gradiente sutil en navy */
-.brand-gradient {
-  background: radial-gradient(60% 60% at 50% 40%, #132347 0%, #0A1833 60%, #071225 100%);
+/* ─── Estilos para el widget flotante ElevenLabs ─── */
+@media (max-width: 640px) {
+  elevenlabs-convai {
+    bottom: 10px !important;
+    right: 10px !important;
+    transform: scale(0.9);
+  }
 }
-/* Aro dorado sutil */
-.gold-ring { box-shadow: 0 0 0 2px #D4AF37 inset; }
+
+@media (max-width: 480px) {
+  elevenlabs-convai {
+    bottom: 8px !important;
+    right: 8px !important;
+    transform: scale(0.85);
+  }
+}
+
+/* ─── Espacio para el widget en móviles ─── */
+@media (max-width: 640px) {
+  body {
+    padding-bottom: 80px;
+  }
+}
